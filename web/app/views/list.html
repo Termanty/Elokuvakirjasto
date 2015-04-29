@@ -1,0 +1,22 @@
+<div ng-controller="ListController">
+    <h1>List of Movies</h1>
+
+    <div id="movie-container">
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Director</td>
+                    <td>Publication Year</td>
+                    <td>Description</td>
+                </tr>
+            </thead>             
+            <tr ng-repeat="movie in movies">
+                <td>{{movie.name}}</td>
+                <td>{{movie.director}}</td>
+                <td>{{movie.pubyear}}</td>
+                <td>{{movie.description}}</td>                         
+            </tr>                     
+        </table>  
+    </div>
+</div>

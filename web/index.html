@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Elokuvakirjasto</title>
   </head>
-  <body>
-    <h1>Hello, world! Doodsone!!!</h1>
+  <body ng-app="MovieApp">
+      
+      <h2>Movie Library</h2>
+      <a href="#/movies">List of Movies</a> | <a href="#/movies/new">New Movie</a>
 
+      <div ng-view></div>
+      
+      
     <!-- Hyödyllisiä kirjastoja -->
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -16,6 +21,8 @@
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
 
     <!-- Linkitä omat tiedostosi tähän (huomaa, että polun juuri on web-kansio!) -->
-    <script src="app/app.js"></script>    
+    <script src="app/app.js"></script>
+    <script src="app/services/firebase_service.js"></script>
+    <script src="app/controllers/movie_controller.js"></script>
   </body>
 </html>

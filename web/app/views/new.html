@@ -1,0 +1,39 @@
+<div ng-controller="NewController">
+      <h1>Add New Movie</h1>
+
+      <form name="movieform">
+          <p>
+              <label>Name: </label>
+              <input name="name" type="text" placeholder="new movie" ng-model="movie.name" required ng-minlength="0">
+              <div ng-show="infoForm.name.$invalid && infoForm.name.$dirty">
+                    Name of movie is invalid!
+              </div>
+          </p>
+          <p>
+              <label>Director: </label>
+              <input name="director" type="text" placeholder="director" ng-model="movie.director" required ng-minlength="0">
+              <div ng-show="infoForm.director.$invalid && infoForm.director.$dirty">
+                    Director is invalid!
+              </div>
+          </p>
+          <p>
+              <label>Pub Year: </label>
+              <input name="year" type="text" placeholder="year" ng-model="movie.pubyear" required ng-pattern="/^[0-9]{4}$/">
+              <div ng-show="infoForm.year.$invalid && infoForm.year.$dirty">
+                    Year is invalid!
+              </div>
+          </p>
+          <p>
+              <label>Description: </label>
+              <input name="description" type="text" placeholder="description" ng-model="movie.description" required ng-minlength="0">
+              <div ng-show="infoForm.description.$invalid && infoForm.description.$dirty">
+                    Field is invalid!
+              </div>
+          </p>
+
+          <input type="submit" ng-click="addMovie()" value="add movie" ng-disabled="movieform.$invalid"/>
+      </form>
+ 
+</div>
+
+
