@@ -1,4 +1,37 @@
 <div ng-controller="ListController">
+    <h1>Search Movies</h1>
+    <form name="movieform">
+        <p>
+            <label>Name: </label>
+            <input name="name" type="text" placeholder="title" ng-model="findbyname" required ng-minlength="0">
+        <div ng-show="movieform.name.$invalid && movieform.name.$dirty">
+            Name of movie is invalid!
+        </div>
+        </p>
+        <p>
+            <label>Pub Year: </label>
+            <input name="year" type="text" placeholder="year" ng-model="findbyyear" required ng-pattern="/^[0-9]{4}$/">
+        <div ng-show="movieform.year.$invalid && movieform.year.$dirty">
+            Year is invalid!
+        </div>
+        </p>
+        <input type="submit" ng-click="findMovie()" value="search" ng-disabled="movieform.$invalid"/>
+    </form>
+    
+    <h2><ng-pluralize count="{{omdbmovies.length}}"
+                  when="{'0': 'No movies found',
+                  '1': 'Search found one movie',
+                  'other': 'Search found {} movies'}">                   
+    </ng-pluralize></h2>
+
+    <table>
+        <tr ng-repeat="movie in omdbmovies">
+            <td><a ng-href="http://www.imdb.com/title/{{movie.imdbID}}">{{movie.Title}}</a></td>
+            <td>{{movie.Year}}</td>
+        </tr> 
+    </table>  
+    
+    
     <h1>List of Movies</h1>
 
     <div id="movie-container">
@@ -8,14 +41,14 @@
                     <td>Name</td>
                     <td>Director</td>
                     <td>Publication Year</td>
-                    <td>Description</td>
+                    <td>Delete</td>
                 </tr>
             </thead>             
             <tr ng-repeat="movie in movies">
-                <td>{{movie.name}}</td>
+                <td><a ng-href="#/movies/{{movie.$id}}">{{movie.name}}</a></td>
                 <td>{{movie.director}}</td>
                 <td>{{movie.pubyear}}</td>
-                <td>{{movie.description}}</td>                         
+                <td><button ng-click="deleteMovie($index)">delete</button></td>
             </tr>                     
         </table>  
     </div>

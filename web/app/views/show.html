@@ -1,0 +1,12 @@
+<div ng-controller="ShowController">
+    <h1>{{movie.name}}</h1>
+
+    <ul>
+        <li>Director: {{movie.director}}</li>
+        <li>Publication Year: {{movie.pubyear}}</li>
+    </ul>
+    <p>
+        {{movie.description}}
+    </p>
+    <a href="#/movies/edit/{{movie.$id}}">Edit</a>
+</div>
