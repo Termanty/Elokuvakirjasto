@@ -4,12 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.2-dist/css/bootstrap.min.css">
     <title>Elokuvakirjasto</title>
   </head>
   <body ng-app="MovieApp">
       
       <h2>Movie Library</h2>
-      <a href="#/movies">List of Movies</a> | <a href="#/movies/new">New Movie</a>
+      <a href="#/movies">List of Movies</a> | 
+      <a href="#/movies/new">New Movie</a> |
+      <a href="#/login" ng-if="!userLoggedIn">Sign in</a>
+      <button ng-click="logOut()" ng-if="userLoggedIn">Sign out</button>
+      
 
       <div ng-view></div>
       
@@ -19,10 +24,17 @@
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
 
     <!-- Linkitä omat tiedostosi tähän (huomaa, että polun juuri on web-kansio!) -->
     <script src="app/app.js"></script>
     <script src="app/services/firebase_service.js"></script>
+    <script src="app/services/other_services.js"></script>
     <script src="app/controllers/movie_controller.js"></script>
+    <script src="app/config_run/configs.js"></script>
+    
   </body>
 </html>

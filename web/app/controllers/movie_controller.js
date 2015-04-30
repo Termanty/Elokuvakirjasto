@@ -25,7 +25,7 @@ MovieApp.controller('NewController', function ($scope, FirebaseService, $locatio
         $scope.movie.description = '';
         $location.path('/');
     };
-});
+});   
 
 MovieApp.controller('ShowController', function ($scope, $routeParams, FirebaseService) {
     FirebaseService.getMovie($routeParams.key, function (movie) {
@@ -48,5 +48,31 @@ MovieApp.controller('SearchController', function($scope, APIService){
   APIService.findMovie('lord').success(function(movies){
     $scope.movies = movies;
   });
+});
+
+MovieApp.controller('UserController', function($scope, $location, AuthenticationService){
+  
+  $scope.logIn = function(){
+    AuthenticationService.logUserIn($scope.email, $scope.password)
+    .then(function(){
+      $location.path('/');
+    })
+    .catch(function(){
+      $scope.message = 'Väärä sähköpostiosoite tai salasana!';
+    });
+  };
+
+  $scope.register = function(){
+    AuthenticationService.createUser($scope.newEmail, $scope.newPassword)
+    .then(function(){
+      AuthenticationService.logUserIn($scope.newEmail, $scope.newPassword)
+      .then(function(){
+        $location.path('/');
+      });
+    })
+    .catch(function(){
+      $scope.message = 'Tapahtui virhe! Yritä uudestaan';
+    });
+  };
 });
 
