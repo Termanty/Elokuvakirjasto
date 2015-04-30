@@ -44,12 +44,6 @@ MovieApp.controller('EditController', function ($scope, $routeParams, FirebaseSe
     };
 });
 
-MovieApp.controller('SearchController', function($scope, APIService){
-  APIService.findMovie('lord').success(function(movies){
-    $scope.movies = movies;
-  });
-});
-
 MovieApp.controller('UserController', function($scope, $location, AuthenticationService){
   
   $scope.logIn = function(){

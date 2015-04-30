@@ -1,7 +1,7 @@
 <div ng-controller="NewController">
       <h1>Add New Movie</h1>
 
-      <form name="movieform">
+      <form name="movieform" class="form-group">
           <p>
               <label>Name: </label>
               <input name="name" type="text" placeholder="new movie" ng-model="movie.name" required ng-minlength="2">
@@ -31,7 +31,7 @@
               </div>
           </p>
 
-          <input type="submit" ng-click="addMovie()" value="add movie" ng-disabled="movieform.$invalid"/>
+          <input type="submit" ng-click="addMovie()" value="add movie" ng-disabled="movieform.$invalid" class="btn btn-primary"/>
       </form>
  
 </div>

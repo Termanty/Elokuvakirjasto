@@ -3,7 +3,7 @@
 {{message}}
 
 <h1>Sign In</h1>
-<form name="signinform">
+<form name="signinform" class="form-group">
     <p>
         <label>Email-address: </label>
         <input name="user" type="text" placeholder="email" ng-model="email" required ng-minlength="5">
@@ -17,13 +17,13 @@
         <div ng-show="signinform.psw.$invalid && signinform.psw.$dirty">
             Password is invalid!
         </div>
-    <input type="submit" ng-click="logIn()" value="login" ng-disabled="signinform.$invalid"/>
+    <input type="submit" ng-click="logIn()" value="login" ng-disabled="signinform.$invalid" class="btn btn-primary"/>
 </form>
 
 
 <h1>Register</h1>
 
-<form name="registerform">
+<form name="registerform" class="form-group">
     <p>
         <label>Email-address: </label>
         <input name="user" type="text" placeholder="email" ng-model="newEmail" required ng-minlength="5">
@@ -37,5 +37,5 @@
         <div ng-show="registerform.psw.$invalid && registerform.psw.$dirty">
             Password is invalid!
         </div>
-    <input type="submit" ng-click="register()" value="register" ng-disabled="registerform.$invalid"/>
+    <input type="submit" ng-click="register()" value="register" ng-disabled="registerform.$invalid" class="btn btn-primary"/>
 </form>
