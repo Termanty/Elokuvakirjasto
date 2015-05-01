@@ -1,5 +1,7 @@
+<div ng-include src="'app/views/navbar.html'"></div>
 
 
+<div ng-controller="UserController">
 {{message}}
 
 <h1>Sign In</h1>
@@ -39,3 +41,5 @@
         </div>
     <input type="submit" ng-click="register()" value="register" ng-disabled="registerform.$invalid" class="btn btn-primary"/>
 </form>
+
+</div>

@@ -5,11 +5,22 @@ describe('Add movie', function(){
 
   	beforeEach(function(){
   		// Lisää moduulisi nimi tähän
-    	module('MyAwesomeModule');
+    	module('MovieApp');
 
     	FirebaseServiceMock = (function(){
+            var movies = [
+                {
+                    movie.name = "Amelie", 
+                    movie.director = "French", 
+                    movie.year = "2000", 
+                    movie.discrition = "Nice movie"
+                }
+            ];
 			return {
 				// Toteuta FirebaseServicen mockatut metodit tähän
+                                addMovie: function () {
+                                    
+                                }
 			}
 		})();
 
@@ -20,7 +31,7 @@ describe('Add movie', function(){
 	    inject(function($controller, $rootScope) {
 	      scope = $rootScope.$new();
 	      // Muista vaihtaa oikea kontrollerin nimi!
-	      controller = $controller('MyAwesomeController', {
+	      controller = $controller('NewController', {
 	        $scope: scope,
 	        FirebaseService: FirebaseServiceMock
 	      });

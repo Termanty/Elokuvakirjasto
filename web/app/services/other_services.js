@@ -29,7 +29,6 @@ MovieApp.service('AuthenticationService', function($firebase, $firebaseAuth){
   };
   
   this.logUserOut = function(){
-      console.log("loging out");
     firebaseAuth.$unauth();
   };
 

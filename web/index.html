@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,6 +10,7 @@
     <title>Elokuvakirjasto</title>
   </head>
   <body ng-app="MovieApp">
+      <!--
       <nav class="navbar navbar-default navbar-static-top">
           <div class="container-fluid">
               <div class="navbar-header">
@@ -19,13 +22,13 @@
                       <li><a href="#/movies/new" class="navbar-link"> New Movie </a></li>
                   </ul>
 
-                  <a href="#/login" ng-if="!userLoggedIn" class="btn btn-default navbar-btn navbar-right">Sign in</a>
-                  <button ng-click="logOut()" ng-if="userLoggedIn" class="btn btn-default navbar-btn navbar-right">Sign out</button>
+                  <a href="#/login" ng-show="!userLoggedIn" class="btn btn-default navbar-btn navbar-right">Sign in</a>
+                  <button ng-click="logOut()" ng-show="userLoggedIn" class="btn btn-default navbar-btn navbar-right">Sign out</button>
 
               </div>
           </div>
       </nav>
-      
+      -->
       
 
       <div ng-view></div>

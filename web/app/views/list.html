@@ -1,4 +1,6 @@
-<div ng-controller="ListController">
+<div ng-include src="'app/views/navbar.html'"></div>
+
+<div ng-controller="ListController">  
     <h1>Search Movies</h1>
     <form name="movieform" class="form-group">
         <p>
@@ -41,14 +43,14 @@
                     <td>Name</td>
                     <td>Director</td>
                     <td>Publication Year</td>
-                    <td>Delete</td>
+                    <td ng-show="userLoggedIn">Delete</td>
                 </tr>
             </thead>             
             <tr ng-repeat="movie in movies">
                 <td><a ng-href="#/movies/{{movie.$id}}">{{movie.name}}</a></td>
                 <td>{{movie.director}}</td>
                 <td>{{movie.pubyear}}</td>
-                <td><button ng-click="deleteMovie($index)" class="btn btn-danger btn-sm">delete</button></td>
+                <td ng-show="userLoggedIn"><button ng-click="deleteMovie($index)" class="btn btn-danger btn-sm">delete</button></td>
             </tr>                     
         </table>  
     </div>

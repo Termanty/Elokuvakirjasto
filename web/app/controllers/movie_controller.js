@@ -50,6 +50,7 @@ MovieApp.controller('UserController', function($scope, $location, Authentication
     AuthenticationService.logUserIn($scope.email, $scope.password)
     .then(function(){
       $location.path('/');
+      document.location.reload(true);
     })
     .catch(function(){
       $scope.message = 'Väärä sähköpostiosoite tai salasana!';
@@ -62,6 +63,7 @@ MovieApp.controller('UserController', function($scope, $location, Authentication
       AuthenticationService.logUserIn($scope.newEmail, $scope.newPassword)
       .then(function(){
         $location.path('/');
+        document.location.reload(true);
       });
     })
     .catch(function(){
